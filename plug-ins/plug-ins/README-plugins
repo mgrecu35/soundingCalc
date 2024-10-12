@@ -1,0 +1,39 @@
+##############################################################
+                           README
+                    SDSU-v2/src/simulator/plug-ins
+                                                     Aug.,2009
+                                                 Hiro Masunaga
+                      Hydrospheric Atmospheric Research Center
+                                             Nagoya University
+##############################################################
+
+This directory contains anscillary subroutines that may be
+helpful for some applications such as template I/O routines for
+input CRM profiles and math routines to convert different
+meteorological parameters.
+
+The following is the list of files stored in this directory. 
+
+##################### FILE LIST #######################
+
+-------------- Fortran source codes -------------------
+
+- README-plugins (this file)
+	ASCII document to describe the content of this directory.
+- rd_CRM_CReSS.f90
+	rd_CRM_CReSS: a template of "rd_CRM" for the Cloud Resolving
+        Storm Simulator (CReSS).
+- def_file_list_CReSS.f90
+        def_file_list_CReSS: a template of "def_file_list" for the Cloud 
+        Resolving Storm Simulator (CReSS).
+- pt2p.f90
+        pt2p: calculates air temperature [K] from potential temperature
+- q2Wg.f90
+        q2Wg: calculates rho*q [g/m3] from mixing ratio (q)
+- q2Wkg.f90
+        q2Wkg: calculates rho*q [kg/m3] from mixing ratio (q)
+- qv2rh.f90
+        qv2rh: calculates relative humidity [%] from water vapor mixing ratio
+- pwvsat.f90
+        pwvsat: calculates saturation water vapor pressure [hPa]
+

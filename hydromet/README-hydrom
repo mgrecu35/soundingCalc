@@ -1,0 +1,78 @@
+##############################################################
+                           README
+                SDSU-v2/src/simulator/hydrom
+                                                     May.,2009
+                                                 Hiro Masunaga
+                      Hydrospheric Atmospheric Research Center
+                                             Nagoya University
+##############################################################
+
+This directory contains subroutines used for calculating the
+hydrometeor radiative properties, called by the microwave
+radiometer, radar, and visible/infrared simulators as well as
+the Mie lookup table generator (../../src/MieLUT/).
+
+##################### FILE LIST #######################
+
+- README-hydrom (this file)
+	ASCII document to describe the content of this directory.
+
+-------------- Fortran source codes -------------------
+
+- MCRPparameters.f90
+	MCRPparameters: F90 module for the hydrometer radiative properties
+	                including the PSD/DSD function (psd_func).
+- df_mie_melt.f90
+	df_mie_melt: calculates the radiative properties in the melting layer.
+- gammaf.f90
+	gammaf, gammln: calculates gamma function.
+- heymsplatt.f90:
+	heymsplatt: obtains an cloud ice PSD based on the Heymsfield and 
+	            Platt (1984) parameterization
+- iceoptic.f90
+	iceoptic: obtains the ice optical properties at microwave frequencies.
+- mg_ell.f90
+	mg_ellips: Maxwell-Garnett routine for elliptical inclusions
+- microp_set.f90
+	microp_set: user interface for microphysical setup
+- mie_cldi.f90
+	mie_cldi: microwave Mie calculation code for cloud ice
+- mie_cldi_vir.f90
+	mie_cldi_vir: visible/IR Mie calculation code for cloud ice
+- mie_cldw.f90 
+	mie_cldw: microwave Mie calculation code for cloud water
+- mie_cldw_vir.f90
+	mie_cldw_vir: visible/IR Mie calculation code for cloud water
+- mie_grpl.f90
+	mie_grpl: microwave Mie calculation code for cloud graupel
+- mie_grpl_vir.f90
+	mie_grpl_vir: visible/IR Mie calculation code for cloud graupel
+- mie_hail.f90
+	mie_hail: microwave Mie calculation code for cloud hail
+- mie_hail_vir.f90
+	mie_hail_vir: visible/IR Mie calculation code for cloud hail
+- mie_melt.f90:
+	mie_melt: computes the radiative properties of melting particles.
+	          Called by "df_mie_melt".
+- mie_rain.f90
+	mie_rain: microwave Mie calculation code for snow
+- mie_rain_vir.f90
+	mie_rain_vir: visible/IR Mie calculation code for snow
+- mie_snow.f90
+	mie_snow: microwave Mie calculation code for snow
+- mie_snow_vir.f90
+	mie_snow_vir: visible/IR Mie calculation code for snow
+- mie_sphere.f90
+	mie_sphere: obtains the radiative properties of particles based
+	            on the Mie theory. 
+- mie_sphere_vir.f90
+	mie_sphere_vir: an extended version of 'mie_sphere' with phase
+	                function included for use by visible/IR simulation.
+- mklab_lut.f90
+	mklab_lut: labels the lookup tables for microwave and radar simulations
+	mklab_lut_vir: labels the lookup tables for visible/IR simulation
+- refind_vir.f90: 
+	watrefind_vir: obtains the visible/IR refractive index of water
+	icerefind_vir: obtains the visible/IR refractive index of ice
+- watoptic.f90
+	watopic: obtains the water optical properties at microwave frequencies.
