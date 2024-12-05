@@ -1,5 +1,36 @@
 !  SFM  04/06/2013  Code module added for WOlson
 !
+      SUBROUTINE RADTRAN_check(UMU, NLYR, TB, BTEMP, LYRTEMP,
+     $                  LYRHGT, KEXT,
+     $                  SALB, ASYM, FISOT, EMIS, EBAR, iLAMBERT)
+C
+C     CHRIS KUMMEROW
+C     INCLUDES ASYMPTOTIC EXPRESSIONS FOR TERM3, TERM4, AND TERM5 IN
+C     THE LIMIT OF SMALL EFFECTIVE OPTICAL DEPTHS; BILL OLSON FEB, 1995.
+C
+!     WSO 04/07/2013  large layer optical depth numerics (double precision) on outgoing radiance
+!     WSO 04/07/2013  delta-eddington option
+!     WSO 04/07/2013  there are many code changes relative to radtran.f, here
+
+      implicit none
+
+      INTEGER *4 MAXLYR
+      PARAMETER    ( MAXLYR = 80 )
+
+      CHARACTER*1  POLN
+      LOGICAL LAMBERT, PRNT(3)
+      integer ilambert
+      integer ier, imode, icode
+      INTEGER NLYR, I, J, NANG, NN
+      REAL  UMU, BTEMP, LYRTEMP(0:NLYR), LYRHGT(0:NLYR), 
+     $      KEXT(NLYR), SALB(NLYR), ASYM(NLYR)
+      REAL  FISOT, EMIS, EBAR
+
+      logical delta
+      real  tb
+!f2py real, intent(out)::tb
+      tb=100     
+      end
       SUBROUTINE RADTRAN(UMU, NLYR, TB, BTEMP, LYRTEMP, LYRHGT, KEXT,
      $                  SALB, ASYM, FISOT, EMIS, EBAR, iLAMBERT)
 C
@@ -21,8 +52,8 @@ C
       integer ilambert
       integer ier, imode, icode
       INTEGER NLYR, I, J, NANG, NN
-      REAL  UMU, BTEMP, LYRTEMP(0:MAXLYR), LYRHGT(0:MAXLYR), 
-     $      KEXT(MAXLYR), SALB(MAXLYR), ASYM(MAXLYR)
+      REAL  UMU, BTEMP, LYRTEMP(0:NLYR), LYRHGT(0:NLYR), 
+     $      KEXT(NLYR), SALB(NLYR), ASYM(NLYR)
       REAL  FISOT, EMIS, EBAR
 
       logical delta
